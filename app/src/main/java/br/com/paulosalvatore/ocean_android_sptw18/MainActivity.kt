@@ -1,12 +1,9 @@
 package br.com.paulosalvatore.ocean_android_sptw18
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +21,11 @@ class MainActivity : AppCompatActivity() {
                 etSobrenome.error = "Por favor, digite o seu sobrenome"
             } else {
                 tvResultado.text = "$nome $sobrenome"
+
+                /*val intent = Intent(this, DetalhesActivity::class.java)
+                intent.putExtra("nome_completo", "$nome $sobrenome")
+                startActivity(intent)*/
+                startActivity<DetalhesActivity>("nome_completo" to "$nome $sobrenome")
             }
         }
     }
